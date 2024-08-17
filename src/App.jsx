@@ -1,5 +1,7 @@
 import style from "./App.module.css";
 import bkg from "./img/wallpaper.jpeg";
+import Letters from "./components/Letters";
+import Hangman from "./components/Hangman";
 
 function App() {
   return (
@@ -8,8 +10,8 @@ function App() {
       <div className={style.glass}>
         <h1 className={style.title}>HANGMAN</h1>
         <div className={style.game}>
-          {/* <Tab />
-          <Hangman /> */}
+          <Letters />
+          <Hangman />
         </div>
         <div className={style.footer}>HANGMAN</div>
       </div>
