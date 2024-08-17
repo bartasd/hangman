@@ -1,6 +1,9 @@
 // refactor to scss - reuse styles
 // use styled-components
 // responsive - design
+// fetch rendom word from some api
+// detach logic and components
+
 
 
 // requirements: https://github.com/belauzas/task-kartuves/blob/main/Uzduotis-be-kritiniu-klaidu-saraso.md
