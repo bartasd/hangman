@@ -6,6 +6,7 @@ export default function Letters() {
 
   return (
     <div className={style.container}>
+      <p>Pick a Letter!</p>
       {abc.map((letter) => (
         <Letter key={letter} letter={letter} />
       ))}
