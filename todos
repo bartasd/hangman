@@ -1,10 +1,8 @@
 // refactor to scss - reuse styles
-// use styled-components
 // responsive - design
-// fetch rendom word from some api
+// fetch rendom word from some - api
 // detach logic and components
-// MAKE GRID OF LETTERS AS IN EXAMPLE
-// REVERSE HANGERMAN
+// IMPORT DESCRIPTION OF THE word - API
 // 
 
 
