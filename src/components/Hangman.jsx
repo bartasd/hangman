@@ -6,14 +6,19 @@ import hm3 from "../img/hangman-3.svg";
 import hm4 from "../img/hangman-4.svg";
 import hm5 from "../img/hangman-5.svg";
 import hm6 from "../img/hangman-6.svg";
+import { useState, useEffect } from "react";
 
-export default function Hangman(props) {
-  const selectedHangman =
-    [hm6, hm5, hm4, hm3, hm2, hm1, hm0][props.hanger] || hm0; // delete OR clause after
+export default function Hangman({ life, definition }) {
+  const [selectedHangman, setSelectedHangman] = useState(hm0);
+
+  useEffect(() => {
+    setSelectedHangman([hm6, hm5, hm4, hm3, hm2, hm1, hm0][life]);
+  }, [life]);
+
   return (
     <div className={style.container}>
       <p>DESCRIPTION:</p>
-      <p>{props.definition}</p>
+      <p>{definition}</p>
       <img src={selectedHangman} alt="#" />
     </div>
   );

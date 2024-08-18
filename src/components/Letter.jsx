@@ -1,16 +1,27 @@
 import { useState } from "react";
 import style from "./letter.module.css";
 
-export default function Letter({ letter, phone }) {
-  const [classList, setClassList] = useState(style.basic);
+export default function Letter({ letter, phone, word, die }) {
+  const [currentStyle, setCurrentStyle] = useState(style.basic);
 
-  function setClass() {
-    setClassList(style.success);
+  function phoneBack() {
     phone(letter);
+    styleBorder();
+  }
+
+  function styleBorder() {
+    currentStyle === style.basic &&
+      setCurrentStyle((old) => {
+        if (!word.includes(letter)) {
+          die();
+          return style.failure;
+        }
+        return style.success;
+      });
   }
 
   return (
-    <p className={classList} onClick={setClass}>
+    <p className={currentStyle} onClick={phoneBack}>
       {letter}
     </p>
   );

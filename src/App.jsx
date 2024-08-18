@@ -8,6 +8,11 @@ function App() {
   const [word, setWord] = useState("");
   const [visualWord, setVisualWord] = useState("");
   const [definition, setDefinition] = useState("");
+  const [life, setLife] = useState(6);
+
+  function lifesOut() {
+    setLife((old) => (old - 1 > 0 ? old - 1 : 0));
+  }
 
   async function getDefinition(word) {
     try {
@@ -56,7 +61,7 @@ function App() {
     if (word.includes(letter)) {
       const indexesOfLetter = [...word]
         .map((e, i) => [e, i])
-        .filter((l) => l[0] == letter)
+        .filter((l) => l[0] === letter)
         .map((e) => e[1]);
       const tempWord = [...visualWord]
         .map((e, i) => (indexesOfLetter.includes(i) ? letter : e))
@@ -71,8 +76,12 @@ function App() {
       <div className={style.glass}>
         <h1 className={style.title}>HANGMAN</h1>
         <div className={style.game}>
-          <Letters phoneBackApp={getPushedLetter} />
-          <Hangman definition={definition} />
+          <Letters
+            phoneBackApp={getPushedLetter}
+            word={word}
+            takeOutLife={lifesOut}
+          />
+          <Hangman definition={definition} life={life} />
         </div>
         <div className={style.footer}>
           {[...visualWord].map((letter) => {

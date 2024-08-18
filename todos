@@ -1,11 +1,11 @@
 // refactor to scss - reuse styles
-// responsive - design
+// responsive - desigg (also fix that fu*ki*g vh and meh showing up scrolls...)
 // detach logic and components
-// GET PRESSED COLORS RIGHT
-// GET LIFE CALCULATION
-// CALCULATE WIN logic
+// implement what happens when life == 0 => use Toast for notifications
 // REFACTOR CODE...
-
-
+// implement logic to deal with words of type "something-something"
+// SHOW LOADING ROTATING RING WHILE FETCHING WORD && DEFINITION (SO YOU CANNOT PRESS BUTTONS WHILE IT AIN"T FINISHED FETCHING)
+// DO style-components needed at all????
+// maybe use-context?
 
 // requirements: https://github.com/belauzas/task-kartuves/blob/main/Uzduotis-be-kritiniu-klaidu-saraso.md
