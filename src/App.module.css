@@ -59,3 +59,8 @@
   font-size: 32px;
   color: white;
 }
+
+.footer > span {
+  margin-right: 5px;
+  text-decoration: underline;
+}

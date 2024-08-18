@@ -12,6 +12,8 @@ export default function Hangman(props) {
     [hm6, hm5, hm4, hm3, hm2, hm1, hm0][props.hanger] || hm0; // delete OR clause after
   return (
     <div className={style.container}>
+      <p>DESCRIPTION:</p>
+      <p>{props.definition}</p>
       <img src={selectedHangman} alt="#" />
     </div>
   );

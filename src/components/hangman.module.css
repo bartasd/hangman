@@ -1,6 +1,25 @@
 .container {
-  width: 40%;
+  width: 35%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container > p {
+  height: 140px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+.container > p:first-of-type {
+  height: 38px;
+  font-weight: bold;
+  font-family: "Matemasie";
+}
+
+.container > img {
+  height: 300px;
 }
