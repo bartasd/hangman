@@ -37,7 +37,7 @@ function App() {
 
       if (response.ok) {
         const data = await response.json();
-        setWord(data[0]);
+        setWord(data[0].toUpperCase());
         setVisualWord("_".repeat(data[0].length));
         getDefinition(data[0]);
       } else {
@@ -52,13 +52,26 @@ function App() {
     getWord();
   }, []);
 
+  function getPushedLetter(letter) {
+    if (word.includes(letter)) {
+      const indexesOfLetter = [...word]
+        .map((e, i) => [e, i])
+        .filter((l) => l[0] == letter)
+        .map((e) => e[1]);
+      const tempWord = [...visualWord]
+        .map((e, i) => (indexesOfLetter.includes(i) ? letter : e))
+        .join("");
+      setVisualWord(tempWord);
+    }
+  }
+
   return (
     <div className={style.container}>
       <img className={style.bkg} src={bkg} />
       <div className={style.glass}>
         <h1 className={style.title}>HANGMAN</h1>
         <div className={style.game}>
-          <Letters />
+          <Letters phoneBackApp={getPushedLetter} />
           <Hangman definition={definition} />
         </div>
         <div className={style.footer}>
