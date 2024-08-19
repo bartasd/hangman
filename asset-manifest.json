@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/hangman/static/css/main.60608ed8.css",
-    "main.js": "/hangman/static/js/main.d0b8f172.js",
+    "main.css": "/hangman/static/css/main.409445b3.css",
+    "main.js": "/hangman/static/js/main.cd392347.js",
     "static/media/wallpaper.jpeg": "/hangman/static/media/wallpaper.ab3975d9fe343c45dce6.jpeg",
     "static/media/hangman-6.svg": "/hangman/static/media/hangman-6.1d67a5239379ffdcfe299a6353bbedbb.svg",
     "static/media/hangman-5.svg": "/hangman/static/media/hangman-5.85b8713cd04daf0aa9cfc16b7eccee1a.svg",
@@ -11,11 +11,11 @@
     "static/media/hangman-1.svg": "/hangman/static/media/hangman-1.7962976c9f0b24b880a09afc7b0d62ec.svg",
     "static/media/hangman-0.svg": "/hangman/static/media/hangman-0.f1ec8565318a18522cba4f93bb0e8ccd.svg",
     "index.html": "/hangman/index.html",
-    "main.60608ed8.css.map": "/hangman/static/css/main.60608ed8.css.map",
-    "main.d0b8f172.js.map": "/hangman/static/js/main.d0b8f172.js.map"
+    "main.409445b3.css.map": "/hangman/static/css/main.409445b3.css.map",
+    "main.cd392347.js.map": "/hangman/static/js/main.cd392347.js.map"
   },
   "entrypoints": [
-    "static/css/main.60608ed8.css",
-    "static/js/main.d0b8f172.js"
+    "static/css/main.409445b3.css",
+    "static/js/main.cd392347.js"
   ]
 }
