@@ -3,6 +3,7 @@ import bkg from "./img/wallpaper.jpeg";
 import Letters from "./components/Letters";
 import Hangman from "./components/Hangman";
 import { useState, useEffect } from "react";
+import Restart from "./components/Restart";
 
 function App() {
   const [word, setWord] = useState("");
@@ -12,6 +13,11 @@ function App() {
 
   function lifesOut() {
     setLife((old) => (old - 1 > 0 ? old - 1 : 0));
+  }
+
+  function restartGame() {
+    setLife(6);
+    getWord();
   }
 
   async function getDefinition(word) {
@@ -26,7 +32,7 @@ function App() {
         const defn = data[0].meanings[0].definitions[0].definition;
         setDefinition(defn);
       } else {
-        getWord();
+        getWord(); // pracekint ar nesidaro dvigubas f-ijos iskvietimas...
       }
     } catch (error) {
       getWord();
@@ -55,6 +61,7 @@ function App() {
 
   useEffect(() => {
     getWord();
+    // eslint-disable-next-line
   }, []);
 
   function getPushedLetter(letter) {
@@ -72,15 +79,19 @@ function App() {
 
   return (
     <div className={style.container}>
-      <img className={style.bkg} src={bkg} />
+      <img className={style.bkg} src={bkg} alt="#" />
       <div className={style.glass}>
         <h1 className={style.title}>HANGMAN</h1>
         <div className={style.game}>
-          <Letters
-            phoneBackApp={getPushedLetter}
-            word={word}
-            takeOutLife={lifesOut}
-          />
+          {life !== 0 ? (
+            <Letters
+              phoneBackApp={getPushedLetter}
+              word={word}
+              takeOutLife={lifesOut}
+            />
+          ) : (
+            <Restart restartGame={restartGame} />
+          )}
           <Hangman definition={definition} life={life} />
         </div>
         <div className={style.footer}>
