@@ -13,7 +13,7 @@ function App() {
   const [uncoveredLetters, setUncoveredLetters] = useState("");
 
   const handleKeyboard = (event) => {
-    //console.log("Key pressed:", event.key);
+    console.log("Key pressed:", event.key);
   };
 
   function lifesOut() {
