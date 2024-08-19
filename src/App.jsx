@@ -12,6 +12,10 @@ function App() {
   const [life, setLife] = useState(6);
   const [uncoveredLetters, setUncoveredLetters] = useState("");
 
+  const handleKeyboard = (event) => {
+    //console.log("Key pressed:", event.key);
+  };
+
   function lifesOut() {
     setLife((old) => {
       const newLife = old - 1;
@@ -72,9 +76,11 @@ function App() {
         getDefinition(data[0]);
       } else {
         console.error("Error fetching the word:", response.status);
+        console.log("failed1");
       }
     } catch (error) {
       console.error("Error fetching the word:", error);
+      console.log("failed2");
     }
   }
 
@@ -97,7 +103,7 @@ function App() {
   }
 
   return (
-    <div className={style.container}>
+    <div className={style.container} tabIndex="0" onKeyDown={handleKeyboard}>
       <img className={style.bkg} src={bkg} alt="#" />
       <div className={style.glass}>
         <h1 className={style.title}>HANGMAN</h1>
