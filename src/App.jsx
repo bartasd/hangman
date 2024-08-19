@@ -10,14 +10,33 @@ function App() {
   const [visualWord, setVisualWord] = useState("");
   const [definition, setDefinition] = useState("");
   const [life, setLife] = useState(6);
+  const [uncoveredLetters, setUncoveredLetters] = useState("");
 
   function lifesOut() {
-    setLife((old) => (old - 1 > 0 ? old - 1 : 0));
+    setLife((old) => {
+      const newLife = old - 1;
+      if (newLife === 0) {
+        revealWord();
+      }
+      return newLife;
+    });
+  }
+
+  function revealWord() {
+    const ul = [];
+    [...word].forEach((l) => {
+      if (!visualWord.includes(l)) {
+        ul.push(l);
+      }
+    });
+    setUncoveredLetters((old) => ul.join(""));
+    setVisualWord((old) => word);
   }
 
   function restartGame() {
     setLife(6);
     getWord();
+    setUncoveredLetters("");
   }
 
   async function getDefinition(word) {
@@ -96,7 +115,9 @@ function App() {
         </div>
         <div className={style.footer}>
           {[...visualWord].map((letter) => {
-            return <span>{letter}</span>;
+            const included = uncoveredLetters.includes(letter);
+            const st = included ? "red" : "";
+            return <span style={{ color: st }}>{letter}</span>;
           })}
         </div>
       </div>
