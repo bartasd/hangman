@@ -4,10 +4,13 @@ import Button from "./Button";
 export default function Restart({ action, restartGame }) {
   return (
     <div className={style.container}>
-      <h2 className={style.message}>
+      <p className={style.message}>
         You{" "}
-        {action === "won" ? "have won! Play again?" : "just lost! Try again..."}
-      </h2>
+        {action === "won"
+          ? "have won! \nPlay again?"
+          : "just lost! \nTry again..."}
+      </p>
+
       <Button text="Restart Game!" callback={restartGame} />
     </div>
   );

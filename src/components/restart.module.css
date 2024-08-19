@@ -11,4 +11,8 @@
 
 .message {
   color: white;
+  font-size: 38px;
+  font-weight: bold;
+  font-family: "Matemasie";
+  text-align: center;
 }
