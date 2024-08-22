@@ -11,6 +11,7 @@ function App() {
   const [definition, setDefinition] = useState("");
   const [life, setLife] = useState(6);
   const [uncoveredLetters, setUncoveredLetters] = useState("");
+  const [action, setAction] = useState("lost");
 
   const handleKeyboard = (event) => {
     console.log("Key pressed:", event.key);
@@ -39,6 +40,7 @@ function App() {
 
   function restartGame() {
     setLife(6);
+    setAction("lost");
     getWord();
     setUncoveredLetters("");
   }
@@ -72,6 +74,7 @@ function App() {
       if (response.ok) {
         const data = await response.json();
         setWord(data[0].toUpperCase());
+        console.log("word is: ", data[0]);
         setVisualWord("_".repeat(data[0].length));
         getDefinition(data[0]);
       } else {
@@ -98,6 +101,9 @@ function App() {
       const tempWord = [...visualWord]
         .map((e, i) => (indexesOfLetter.includes(i) ? letter : e))
         .join("");
+      if (!tempWord.includes("_")) {
+        setAction("won");
+      }
       setVisualWord(tempWord);
     }
   }
@@ -108,14 +114,14 @@ function App() {
       <div className={style.glass}>
         <h1 className={style.title}>HANGMAN</h1>
         <div className={style.game}>
-          {life !== 0 ? (
+          {life !== 0 && action !== "won" ? (
             <Letters
               phoneBackApp={getPushedLetter}
               word={word}
               takeOutLife={lifesOut}
             />
           ) : (
-            <Restart restartGame={restartGame} />
+            <Restart action={action} restartGame={restartGame} />
           )}
           <Hangman definition={definition} life={life} />
         </div>
