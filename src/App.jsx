@@ -65,25 +65,39 @@ function App() {
   }
 
   async function getWord() {
-    try {
-      const request = new Request(
-        "https://random-word-api.herokuapp.com/word?number=1"
-      );
-      const response = await fetch(request);
+    const url = "https://random-word-api.herokuapp.com/word?number=1";
+    let tryTimes = 0;
 
-      if (response.ok) {
-        const data = await response.json();
-        setWord(data[0].toUpperCase());
-        console.log("word is: ", data[0]);
-        setVisualWord("_".repeat(data[0].length));
-        getDefinition(data[0]);
-      } else {
-        console.error("Error fetching the word:", response.status);
-        console.log("failed1");
+    // if word fails to fetch - try again - up to 3 times;...
+    while (tryTimes < 3) {
+      try {
+        tryTimes++;
+        const request = new Request(url);
+        const response = await fetch(request);
+
+        if (response.ok) {
+          const data = await response.json();
+          setWord(data[0].toUpperCase());
+          console.log("Word is: ", data[0]);
+          setVisualWord("_".repeat(data[0].length));
+          getDefinition(data[0]);
+          break;
+        } else {
+          console.log("Failed to fetch word. Status:", response.status);
+          if (tryTimes === 3) {
+            throw new Error("Failed to fetch word after 3 attempts");
+          }
+        }
+      } catch (error) {
+        if (tryTimes === 3) {
+          console.error("Unexpected error:", error);
+          alert(
+            "Hangman encountered an unexpected error. Please try again later."
+          );
+        } else {
+          console.error("Attempt failed with error:", error);
+        }
       }
-    } catch (error) {
-      console.error("Error fetching the word:", error);
-      console.log("failed2");
     }
   }
 

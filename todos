@@ -1,13 +1,11 @@
 // refactor to scss - reuse styles
 // responsive - desigg (also fix that fu*ki*g vh and meh showing up scrolls...)
 // detach logic and components
-// use Toast for notifications were necessary
 // REFACTOR CODE...
 // implement logic to deal with words of type "something-something"
 // SHOW LOADING ROTATING RING WHILE FETCHING WORD && DEFINITION (SO YOU CANNOT PRESS BUTTONS WHILE IT AIN"T FINISHED FETCHING)
 // DO style-components needed at all????
 // maybe use-context?
-// check if fetch fallback doesn't fire twice...
 // implement win/lost scores, save in localStorage, implement user auth...
 // sutvarkyti restart case when won...
 // fallback API's
