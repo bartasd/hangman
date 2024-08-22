@@ -1,15 +1,26 @@
-// refactor to scss - reuse styles
-// responsive - desigg (also fix that fu*ki*g vh and meh showing up scrolls...)
-// detach logic and components
-// REFACTOR CODE...
-// implement logic to deal with words of type "something-something"
-// SHOW LOADING ROTATING RING WHILE FETCHING WORD && DEFINITION (SO YOU CANNOT PRESS BUTTONS WHILE IT AIN"T FINISHED FETCHING)
-// DO style-components needed at all????
-// implement win/lost scores, save in localStorage, implement user auth...
-// sutvarkyti restart case when won...
-// fallback API's
-// sutvarkyti event listenerį...
-// vietoj alertu naudoti toastus...
+// NEXT JOBS IN ORDERLY MANNER:
 
+// ------- 1st DAY (STYLING DAY) -------------
+// 1.  FIX CSS WITH SCSS
+// 2.  MAKE STYLE REPSONSIVE
+// 3.  CONSIDER USE OF STYLED-COMPONENTS OR NOT...
+// 4.  SHOW LOADING ROTATING RING WHILE FETCHING WORD && DEFINITION
+
+// ------- 2nd DAY (LOGIC DAY) ---------------
+// 5.  implement logic to deal with words of type "something-something"
+// 6.  implement win/lost scores, save in localStorage, implement user auth...
+
+// ------- 3rd DAY (LOGIC DAY) ---------------
+// 7.  sutvarkyti event listenerį... + use of keyboard
+// 8.  vietoj alertu naudoti toastus...
+
+// ------- 4th DAY (LOGIC DAY) ---------------
+// 9.  detach logic and components
+// 10. consider a way to use other fallback api's if failed..
+// 11. refactor code if needed
+
+// ------- 5th DAY (LOGIC DAY) ---------------
 // ALSO CHECK TOTAL REQUIREMENTS AFTER:
 // requirements: https://github.com/belauzas/task-kartuves/blob/main/Uzduotis-be-kritiniu-klaidu-saraso.md
+
+// OTHER SUGGESTIONS?
