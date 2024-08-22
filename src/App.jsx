@@ -46,10 +46,9 @@ function App() {
   }
 
   async function getDefinition(word) {
+    const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     try {
-      const request = new Request(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-      );
+      const request = new Request(url);
       const response = await fetch(request);
 
       if (response.ok) {
@@ -60,7 +59,10 @@ function App() {
         getWord(); // pracekint ar nesidaro dvigubas f-ijos iskvietimas...
       }
     } catch (error) {
-      getWord();
+      console.error(
+        "Unexpected error: definition API service ain't working..."
+      );
+      alert("Hangman encountered an unexpected error. Please try again later.");
     }
   }
 
