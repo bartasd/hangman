@@ -1,4 +1,4 @@
-import style from "./button.module.css";
+import style from "./button.module.scss";
 import React, { useState, useEffect } from "react";
 
 export default function Button({ text, callback }) {

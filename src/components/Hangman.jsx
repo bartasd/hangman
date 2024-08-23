@@ -1,4 +1,4 @@
-import style from "./hangman.module.css";
+import style from "./hangman.module.scss";
 import hm0 from "../img/hangman-0.svg";
 import hm1 from "../img/hangman-1.svg";
 import hm2 from "../img/hangman-2.svg";

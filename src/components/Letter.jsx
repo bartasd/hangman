@@ -1,5 +1,5 @@
 import { useState } from "react";
-import style from "./letter.module.css";
+import style from "./letter.module.scss";
 
 export default function Letter({ letter, phone, word, die }) {
   const [currentStyle, setCurrentStyle] = useState(style.basic);

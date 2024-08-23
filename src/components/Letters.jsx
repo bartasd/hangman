@@ -1,4 +1,4 @@
-import style from "./letters.module.css";
+import style from "./letters.module.scss";
 import Letter from "./Letter";
 
 export default function Letters({ phoneBackApp, word, takeOutLife }) {

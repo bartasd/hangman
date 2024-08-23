@@ -1,4 +1,4 @@
-import style from "./restart.module.css";
+import style from "./restart.module.scss";
 import Button from "./Button";
 
 export default function Restart({ action, restartGame }) {

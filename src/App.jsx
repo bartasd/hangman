@@ -1,4 +1,4 @@
-import style from "./App.module.css";
+import style from "./App.module.scss";
 import bkg from "./img/wallpaper.jpeg";
 import Letters from "./components/Letters";
 import Hangman from "./components/Hangman";
