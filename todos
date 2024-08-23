@@ -4,8 +4,6 @@
 // 1.  MAKE VARIABLES FOR OFTEN USED VALUES
 // 2.  MAKE STYLE REPSONSIVE
 
-// 4.  SHOW LOADING ROTATING RING WHILE FETCHING WORD && DEFINITION
-
 // ------- 2nd DAY (LOGIC DAY) ---------------
 // 5.  implement logic to deal with words of type "something-something"
 // 6.  implement win/lost scores, save in localStorage, implement user auth...
@@ -23,4 +21,8 @@
 // ALSO CHECK TOTAL REQUIREMENTS AFTER:
 // requirements: https://github.com/belauzas/task-kartuves/blob/main/Uzduotis-be-kritiniu-klaidu-saraso.md
 
+// LAST : CHECK STATES... maybe use redux, to fix rendering issues...
+
 // OTHER SUGGESTIONS?
+
+

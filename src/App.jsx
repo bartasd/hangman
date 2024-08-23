@@ -4,6 +4,7 @@ import Letters from "./components/Letters";
 import Hangman from "./components/Hangman";
 import { useState, useEffect } from "react";
 import Restart from "./components/Restart";
+import Spinner from "./components/Spinner";
 
 function App() {
   const [word, setWord] = useState("");
@@ -12,6 +13,7 @@ function App() {
   const [life, setLife] = useState(6);
   const [uncoveredLetters, setUncoveredLetters] = useState("");
   const [action, setAction] = useState("lost");
+  const [fetchSuccess, setFetchSuccess] = useState(false);
 
   const handleKeyboard = (event) => {
     console.log("Key pressed:", event.key);
@@ -39,38 +41,17 @@ function App() {
   }
 
   function restartGame() {
+    setFetchSuccess(false);
     setLife(6);
     setAction("lost");
     getWord();
     setUncoveredLetters("");
   }
 
-  async function getDefinition(word) {
-    const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
-    try {
-      const request = new Request(url);
-      const response = await fetch(request);
-
-      if (response.ok) {
-        const data = await response.json();
-        const defn = data[0].meanings[0].definitions[0].definition;
-        setDefinition(defn);
-      } else {
-        getWord(); // pracekint ar nesidaro dvigubas f-ijos iskvietimas...
-      }
-    } catch (error) {
-      console.error(
-        "Unexpected error: definition API service ain't working..."
-      );
-      alert("Hangman encountered an unexpected error. Please try again later.");
-    }
-  }
-
   async function getWord() {
     const url = "https://random-word-api.herokuapp.com/word?number=1";
     let tryTimes = 0;
 
-    // if word fails to fetch - try again - up to 3 times;...
     while (tryTimes < 3) {
       try {
         tryTimes++;
@@ -79,10 +60,14 @@ function App() {
 
         if (response.ok) {
           const data = await response.json();
-          setWord(data[0].toUpperCase());
-          console.log("Word is: ", data[0]);
-          setVisualWord("_".repeat(data[0].length));
-          getDefinition(data[0]);
+          const fetchedWord = data[0].toUpperCase();
+          console.log("Word is: ", fetchedWord);
+          setVisualWord("_".repeat(fetchedWord.length));
+
+          await getDefinition(fetchedWord);
+          await setWord(fetchedWord);
+          setFetchSuccess(true);
+
           break;
         } else {
           console.log("Failed to fetch word. Status:", response.status);
@@ -100,6 +85,27 @@ function App() {
           console.error("Attempt failed with error:", error);
         }
       }
+    }
+  }
+
+  async function getDefinition(word) {
+    const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+    try {
+      const request = new Request(url);
+      const response = await fetch(request);
+
+      if (response.ok) {
+        const data = await response.json();
+        const defn = data[0].meanings[0].definitions[0].definition;
+        setDefinition(defn);
+      } else {
+        getWord();
+      }
+    } catch (error) {
+      console.error(
+        "Unexpected error: definition API service ain't working..."
+      );
+      alert("Hangman encountered an unexpected error. Please try again later.");
     }
   }
 
@@ -130,7 +136,9 @@ function App() {
       <div className={style.glass}>
         <h1 className={style.title}>HANGMAN</h1>
         <div className={style.game}>
-          {life !== 0 && action !== "won" ? (
+          {!fetchSuccess ? (
+            <Spinner />
+          ) : life !== 0 && action !== "won" ? (
             <Letters
               phoneBackApp={getPushedLetter}
               word={word}
@@ -142,10 +150,14 @@ function App() {
           <Hangman definition={definition} life={life} />
         </div>
         <div className={style.footer}>
-          {[...visualWord].map((letter) => {
+          {[...visualWord].map((letter, index) => {
             const included = uncoveredLetters.includes(letter);
             const st = included ? "red" : "";
-            return <span style={{ color: st }}>{letter}</span>;
+            return (
+              <span key={index} style={{ color: st }}>
+                {letter}
+              </span>
+            );
           })}
         </div>
       </div>
