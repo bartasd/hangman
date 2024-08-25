@@ -2,7 +2,7 @@
 
 .container {
   width: 271px;
-  height: 400px;
+  height: clamp(400px, calc(80vh - 2.5 * $height_title_footer), 800px);
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
@@ -21,9 +21,71 @@
   }
 
   p:first-of-type {
-    font-family: "Matemasie";
+    font-family: $myFont;
     width: 103px;
     cursor: auto;
     font-size: 14px;
+  }
+}
+
+@media screen and (max-height: 880px) {
+  .container {
+    width: 211px;
+    margin-left: calc(30% - 105.5px);
+    margin-right: calc(30% - 105.5px);
+    p {
+      height: 15px;
+      width: 15px;
+    }
+    p:first-of-type {
+      width: 73px;
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .container {
+    width: 211px;
+    margin-left: calc(30% - 105.5px);
+    margin-right: calc(30% - 105.5px);
+    p {
+      height: 15px;
+      width: 15px;
+    }
+    p:first-of-type {
+      width: 73px;
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 146px;
+    gap: 2px;
+    margin-left: calc(30% - 73px);
+    margin-right: calc(30% - 73px);
+    p {
+      padding: 8px;
+    }
+    p:first-of-type {
+      width: 52px;
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    margin-left: 10px;
+    margin-right: 70px;
+    min-width: 146px;
   }
 }

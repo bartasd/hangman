@@ -1,6 +1,7 @@
 @import "./root.scss";
 
 .container {
+  min-width: 440px;
   height: 100vh;
   position: relative;
   @include flex-center;
@@ -17,8 +18,9 @@
   }
 
   .glass {
-    width: 1000px;
-    height: 600px;
+    min-width: 380px;
+    width: $hangman-wide;
+    height: clamp(600px, 80vh, 1000px);
     position: absolute;
     z-index: 2;
     background: rgba(255, 255, 255, 0.05);
@@ -29,25 +31,21 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     overflow: hidden;
 
-    &:div {
-      width: 100%;
-    }
-
     .title {
-      font-family: "Matemasie";
+      font-family: $myFont;
       font-size: 48px;
-      height: 100px;
+      height: $height_title_footer;
       @include flex-center;
       color: rgba(94, 95, 95, 0.329);
-      text-shadow: white 1px 0 10px;
+      text-shadow: white 6px 0 5px;
     }
 
     .game {
-      height: 400px;
+      height: clamp(400px, calc(80vh - 2 * $height_title_footer), 800px);
       display: flex;
     }
     .footer {
-      height: 150px;
+      height: $height_title_footer;
       @include flex-center;
       font-size: 32px;
       color: white;

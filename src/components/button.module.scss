@@ -29,3 +29,20 @@
     }
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .gradient {
+    width: 80px;
+    height: 30px;
+    .overlay {
+      width: 76px;
+      height: 26px;
+      font-size: 0.75rem;
+      font-weight: normal;
+      .text {
+        width: 80px;
+        height: 30px;
+      }
+    }
+  }
+}

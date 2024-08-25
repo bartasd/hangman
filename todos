@@ -2,7 +2,7 @@
 
 // ------- 1st DAY (STYLING DAY) -------------
 // 1.  MAKE VARIABLES FOR OFTEN USED VALUES
-// 2.  MAKE STYLE REPSONSIVE
+// 2.  MAKE STYLE REPSONSIVE ;; semi-finished
 
 // ------- 2nd DAY (LOGIC DAY) ---------------
 // 5.  implement logic to deal with words of type "something-something"
@@ -22,6 +22,7 @@
 // requirements: https://github.com/belauzas/task-kartuves/blob/main/Uzduotis-be-kritiniu-klaidu-saraso.md
 
 // LAST : CHECK STATES... maybe use redux, to fix rendering issues...
+// LAST CHECK MOBILES SVH AND SIMILIAR STUFF
 
 // OTHER SUGGESTIONS?
 
