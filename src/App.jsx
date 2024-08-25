@@ -65,7 +65,7 @@ function App() {
           setVisualWord("_".repeat(fetchedWord.length));
 
           await getDefinition(fetchedWord);
-          await setWord(fetchedWord);
+          setWord(fetchedWord);
           setFetchSuccess(true);
 
           break;
